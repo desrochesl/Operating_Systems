@@ -1,6 +1,9 @@
 #include <stdio.h>
 
-float coin_counter()
+/**
+ * Converts coins into USD.
+ */
+void coin_counter()
 {
     int pennies;
     int nickels;
@@ -15,26 +18,30 @@ float coin_counter()
     printf("Enter number of pennies:");
     scanf("%d", &pennies);
 
-    if (pennies < 0 || nickels < 0 || dimes < 0 || quarters < 0) {
+    if (pennies < 0 || nickels < 0 || dimes < 0 || quarters < 0)
+    {
         printf("Negative coins are not allowed, restart and try again\n");
-        return 0;
     }
 
     int change = pennies + (5 * nickels) + (10 * dimes) + (25 * quarters);
     float dollars = (float)change / 100;
-    return dollars;
+    printf("You have $%.2f in coins\n", dollars);
 }
 
-int fewest_change()
+/**
+ *  Prints the smallest amount of coins given a amt of $.
+ */
+void fewest_change()
 {
     float dollars;
 
     printf("Enter total amount:");
     scanf("%f", &dollars);
 
-    if (dollars < 0) {
+    if (dollars < 0)
+    {
         printf("Negative currency is not allowed, restart and try again\n");
-        return 0;
+        return;
     }
 
     int cents = (int)(dollars * 100 + 0.5);
@@ -51,12 +58,12 @@ int fewest_change()
 
     printf("You have %d quarters %d dimes %d nickels and %d pennies", quarters, dimes, nickels, pennies);
 
-    return 0;
+    return;
 }
 
 int main()
 {
-    printf("You have $%.2f in coins\n", coin_counter());
+    coin_counter();
 
     fewest_change();
     return 0;
