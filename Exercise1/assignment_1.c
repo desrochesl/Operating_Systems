@@ -35,6 +35,6 @@ int main()
     float weight;
     printf("Input the weight of the package:\n");
     scanf("%f", &weight);
-    printf("The price of the package is: %.2f\n", package_price(weight));
+    printf("The price of the %.2flb package is: %.2f\n", weight, package_price(weight));
     return 0;
 }
