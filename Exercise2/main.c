@@ -29,7 +29,7 @@ void coin_counter()
 }
 
 /**
- *  Prints the smallest amount of coins given a amt of $.
+ *  Prints the smallest amount of coins given an amt of $.
  */
 void fewest_change()
 {

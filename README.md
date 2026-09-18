@@ -15,3 +15,22 @@ scanf("%f", &weight)
 ```
 
 Using type casting, I ensure that the weight input does not crash the program when inputting any non number. 
+
+#### Exercise 2
+**Part A**: Convert coins to a $ amount, given a user input of how many quarters, dimes, nickels, pennies
+
+**Part B**: Find the smallest amount of coins needed given a $ amount
+```C
+// Using a greedy approach, we can use a modulus operator to remove the cents left over. 
+    int cents = (int)(dollars * 100 + 0.5);
+
+    int quarters = cents / 25;
+    cents %= 25;
+
+    int dimes = cents / 10;
+    cents %= 10;
+
+    int nickels = cents / 5;
+
+    int pennies = cents % 5;
+```
