@@ -57,4 +57,6 @@ dkms.conf
 .DS_Store
 tasks.json
 Exercise1/assignment_1
-*/main
+
+# Compiled C code
+bin/*

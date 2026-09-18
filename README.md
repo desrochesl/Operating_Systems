@@ -4,8 +4,32 @@ This is a compilation of my classwork in Operating Systems.
 
 This class uses C as it's main language. I hope to see vast improvements as the class goes on. I have never created a project in C before, so I am hoping the project structure is correct.
 
-## Projects:
-#### Exercise 1
+## Usage
+
+### Make
+```sh
+# In main dir
+make -C Exercise{{num}} main
+./Exercise{{num}}/main
+# In exercise dir
+make main
+./main
+```
+
+### Justfile
+```sh
+# Build and run an exercise
+just mrun <folder> <name>
+
+# Build an exercise
+just make <folder> <name>
+
+# Run a previously built exercise
+just run <folder> <name>
+```
+
+## Projects
+### Exercise 1
 Calculate the price of a package from a given weight. Using user input as the way to get the weight. 
 
 ```C
