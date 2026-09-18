@@ -1,5 +1,0 @@
-build:
-    make assignment_1
-
-run:
-    ./assignment_1
