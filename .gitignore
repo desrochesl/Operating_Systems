@@ -1,0 +1,10 @@
+build
+*.o
+compile_commands.json
+cmake-build-debug
+tests/out.txt
+Testing
+test_add_all_pos
+test_max_diff
+test_power
+test_price
