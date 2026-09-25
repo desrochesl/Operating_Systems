@@ -59,4 +59,4 @@ tasks.json
 Exercise1/assignment_1
 
 # Compiled C code
-bin/*
+.bin/*

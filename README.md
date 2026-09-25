@@ -18,14 +18,10 @@ make main
 
 ### Justfile
 ```sh
-# Build and run an exercise
-just mrun <folder> <name>
-
-# Build an exercise
-just make <folder> <name>
-
-# Run a previously built exercise
-just run <folder> <name>
+# Run
+just run path/to/file.c
+# Build
+just build path/to/file.c
 ```
 
 ## Projects

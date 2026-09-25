@@ -1,9 +1,11 @@
-mrun folder name: (make folder name) (run folder name)
+CC := "gcc"
+CFLAGS := "-Wall -Wextra -std=c11"
 
-make folder name:
-    mkdir -p ./bin/{{folder}}
-    make -C {{folder}} {{name}}
-    mv ./{{folder}}/{{name}} ./bin/{{folder}}/{{name}}
+# Compile and run from bin/
+run file: (build file)
+    ./.bin/{{ without_extension(file) }}
 
-run folder name: 
-    ./bin/{{folder}}/{{name}}
+# Compile to bin/
+build file:
+    @mkdir -p ".bin/{{ parent_dir(file) }}"
+    {{CC}} {{CFLAGS}} {{file}} -o ".bin/{{ without_extension(file) }}"
