@@ -24,8 +24,11 @@ just run path/to/file.c
 just build path/to/file.c
 ```
 
-## Projects
-### Exercise 1
+## Projects:
+### Assignment 1
+#### **TODO**
+## Classwork: 
+### Week 1
 Calculate the price of a package from a given weight. Using user input as the way to get the weight. 
 
 ```C
@@ -36,7 +39,7 @@ scanf("%f", &weight)
 
 Using type casting, I ensure that the weight input does not crash the program when inputting any non number. 
 
-### Exercise 2
+### Week 2
 #### main.c
 **Part A**: Convert coins to a $ amount, given a user input of how many quarters, dimes, nickels, pennies
 
@@ -102,3 +105,6 @@ int main()
     printf("The result is %d", res);
 }
 ```
+
+
+### Week 3
