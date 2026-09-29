@@ -1,0 +1,12 @@
+build
+*.o
+compile_commands.json
+cmake-build-debug
+tests/out.txt
+Testing
+test_array_create
+test_array_fill
+test_capitalize
+test_string_concat
+test_string_fill
+test_valid_password
