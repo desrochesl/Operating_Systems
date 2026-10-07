@@ -10,11 +10,19 @@
 struct ll_node *ll_head(struct ll_node *head) { return head; }
 
 /**
- * TODO: Describe what the function does
+ * Finds the tail of the linked list by gathering the next
+ * @param head pointer to the start of the linked list
+ * @returns the tail of the linked list
  */
 struct ll_node *ll_tail(struct ll_node *head) {
-    // TODO: Complete and document
-    return NULL;
+    struct ll_node *current = head;
+    int size = ll_size(head);
+
+    if (!head) return NULL;
+
+    for (struct ll_node *c = current; c->next; c = c->next) current = c->next;
+
+    return current;
 }
 
 /**
