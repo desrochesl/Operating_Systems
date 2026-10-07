@@ -55,11 +55,21 @@ struct ll_node *ll_find(struct ll_node *head, int value) {
 }
 
 /**
- * TODO: Describe what the function does
+ * Converts a linked list to an array
+ * @param head pointer to the start of the linked list
+ * @returns linked list to array
  */
 int *ll_toarray(struct ll_node *head) {
-    // TODO: Complete and document
-    return NULL;
+    struct ll_node *current = head;
+    int size = ll_size(head);
+    if (!head || size <= 0) return NULL;
+
+    int *ll_array = malloc(size * sizeof(int));
+    for (int i = 0; i < size; i++) {
+        ll_array[i] = current->data;
+        current = current->next;
+    }
+    return ll_array;
 }
 
 /**
