@@ -97,10 +97,13 @@ void ll_destroy(struct ll_node *head) {
 }
 
 /**
- * TODO: Describe what the function does
+ * Creates a new node at the end of the linked list
+ * @param head pointer to the start of the linked list
+ * @param data to be added to the linked list
  */
 void ll_append(struct ll_node *head, int data) {
-    // TODO: Complete and document
+    struct ll_node *tail = ll_tail(head);
+    ll_tail(head)->next = ll_create(data);
 }
 
 /**
