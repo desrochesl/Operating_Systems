@@ -26,11 +26,18 @@ struct ll_node *ll_tail(struct ll_node *head) {
 }
 
 /**
- * TODO: Describe what the function does
+ * Searches through the linked list to calculate it's size
+ * @param head pointer to the start of the linked list
+ * @returns the size of the linked list
  */
 int ll_size(struct ll_node *head) {
-    // TODO: Complete and document
-    return -1;
+    struct ll_node *current = head;
+    int size = 0;
+    while (current != NULL) {
+        current = current->next;
+        size++;
+    }
+    return size;
 }
 
 /**
