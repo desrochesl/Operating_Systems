@@ -107,11 +107,21 @@ void ll_append(struct ll_node *head, int data) {
 }
 
 /**
- * TODO: Describe what the function does
+ * Creates a new linked list from a given array
+ * @param data array of integers to add to the linked list
+ * @param len length of data
+ * @returns new linked list
  */
-struct ll_node *ll_fromarray(int* data, int len) {
-    // TODO: Complete and document
-    return NULL;
+struct ll_node *ll_fromarray(int *data, int len) {
+    if (!data || len <= 0) return NULL;
+    struct ll_node *head = ll_create(data[0]);
+    struct ll_node *curr = head;
+
+    for (int i = 1; i < len; i++) {
+        curr->next = ll_create(data[i]);
+        curr = curr->next;
+    }
+    return head;
 }
 
 /**
