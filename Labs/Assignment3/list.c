@@ -85,10 +85,15 @@ struct ll_node *ll_create(int data) {
 }
 
 /**
- * TODO: Describe what the function does
+ * Free memory of each node of the linked list
+ * @param head pointer to the start of the linked list
  */
 void ll_destroy(struct ll_node *head) {
-    // TODO: Complete and document
+    while (head) {
+        struct ll_node *next = head->next;
+        free(head);
+        head = next;
+    }
 }
 
 /**
