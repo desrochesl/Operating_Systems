@@ -1,0 +1,15 @@
+build
+*.o
+compile_commands.json
+cmake-build-debug
+tests/out.txt
+Testing
+test_create_append
+test_create_destroy
+test_find
+test_fromarray
+test_head
+test_remove
+test_size
+test_tail
+test_toarray
