@@ -5,10 +5,7 @@
 /**
  * TODO: Describe what the function does
  */
-struct ll_node *ll_head(struct ll_node *head) {
-    // TODO: Complete and document
-    return NULL;
-}
+struct ll_node *ll_head(struct ll_node *head) { return head; }
 
 /**
  * TODO: Describe what the function does
