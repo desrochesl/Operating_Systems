@@ -3,7 +3,9 @@
 // TODO: Include any necessary header files here
 
 /**
- * TODO: Describe what the function does
+ * Returns the head of the linked list
+ * @param head pointer to the head of the linked list
+ * @return a struct version of the head of the linked list
  */
 struct ll_node *ll_head(struct ll_node *head) { return head; }
 
