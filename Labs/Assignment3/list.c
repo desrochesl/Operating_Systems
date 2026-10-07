@@ -41,10 +41,16 @@ int ll_size(struct ll_node *head) {
 }
 
 /**
- * TODO: Describe what the function does
+ * Searches through the linked list to find the first occurance of a value
+ * @param head pointer to the start of the linked list
+ * @param value to search for
+ * @returns the node containing the value given. else: NULL
  */
 struct ll_node *ll_find(struct ll_node *head, int value) {
-    // TODO: Complete and document
+    if (!head) return NULL;
+    for (struct ll_node *c = head; c; c = c->next) {
+        if (c->data == value) return c;
+    }
     return NULL;
 }
 
