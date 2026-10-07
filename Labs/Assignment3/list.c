@@ -73,11 +73,15 @@ int *ll_toarray(struct ll_node *head) {
 }
 
 /**
- * TODO: Describe what the function does
+ * Creates a new linked list node
+ * @param data to be insterted into the node
+ * @returns node a ll_node containing the given data
  */
 struct ll_node *ll_create(int data) {
-    // TODO: Complete and document
-    return NULL;
+    struct ll_node *node = malloc(sizeof(struct ll_node));
+    if (node) *node = (struct ll_node){.data = data, .next = NULL};
+
+    return node;
 }
 
 /**
