@@ -125,10 +125,25 @@ struct ll_node *ll_fromarray(int *data, int len) {
 }
 
 /**
- * TODO: Describe what the function does
+ * Removes a single node from the linked list
+ * @param head pointer to the start of the linked list
+ * @param value node containing the data we would like to destroy
+ * @returns head of linked list
  */
 struct ll_node *ll_remove(struct ll_node *head, int value) {
-    // TODO: Complete and document
-    return NULL;
+    if (!head) return NULL;
+    if (head->data == value) {
+        struct ll_node *next = head->next;
+        free(head);
+        return next;
+    }
+    for (struct ll_node *c = head; c->next; c = c->next) {
+        if (c->next->data == value) {
+            struct ll_node *tmp = c->next;
+            c->next = tmp->next;
+            free(tmp);
+            break;
+        }
+    }
+    return head;
 }
-
