@@ -5,11 +5,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-// TODO: Include more header files (read the manpages to find out more!)
-
 /**
- * Convert all letters in a string to uppercase. 
- * @param str a character array containing the string we are trying to convert to uppercase. 
+ * Convert all letters in a string to uppercase.
+ * @param str a character array containing the string we are trying to convert
+ * to uppercase.
  */
 void to_uppercase(char* str) {
     for (int i = 0; str[i] != '\0'; i++) {
@@ -18,7 +17,8 @@ void to_uppercase(char* str) {
 }
 
 /**
- * Given a list of strings, convert all letters to uppercase characters and print them out. 
+ * Given a list of strings, convert all letters to uppercase characters and
+ * print them out.
  * @param argc length of inputs
  * @param argv character array of inputs
  * @return 0 if success, 1 if failure
