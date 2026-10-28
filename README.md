@@ -2,11 +2,14 @@
 
 This is a compilation of my classwork in Operating Systems.
 
-This class uses C as it's main language. I hope to see vast improvements as the class goes on. I have never created a project in C before, so I am hoping the project structure is correct.
+This class uses C as it's main language. I hope to see vast improvements as the
+class goes on. I have never created a project in C before,
+so I am hoping the project structure is correct.
 
 ## Usage
 
 ### Make
+
 ```sh
 # In main dir
 make -C Exercise{{num}} main
@@ -17,6 +20,7 @@ make main
 ```
 
 ### Justfile
+
 ```sh
 # Run
 just run path/to/file.c
@@ -24,28 +28,42 @@ just run path/to/file.c
 just build path/to/file.c
 ```
 
-## Projects:
+## Projects
+
 ### Assignment 1
+
 #### **TODO**
-## Classwork: 
+
+## Classwork
+
 ### Week 1
-Calculate the price of a package from a given weight. Using user input as the way to get the weight. 
+
+Calculate the price of a package from a given weight.
+Using user input as the way to get the weight.
 
 ```C
 // User Input:
-// The & symbol is the address-of operator. This allows the program to write directly to the memory location of the variable. 
+// The & symbol is the address-of operator.
+// This allows the program to write directly to the memory location of the variable.
 scanf("%f", &weight)
 ```
 
-Using type casting, I ensure that the weight input does not crash the program when inputting any non number. 
+Using type casting,
+I ensure that the weight input does not crash the program when inputting any non
+number.
 
 ### Week 2
+
 #### main.c
-**Part A**: Convert coins to a $ amount, given a user input of how many quarters, dimes, nickels, pennies
+
+**Part A**: Convert coins to a $ amount, given a user input of how many
+quarters, dimes, nickels, pennies
 
 **Part B**: Find the smallest amount of coins needed given a $ amount
+
 ```C
-// Using a greedy approach, we can use a modulus operator to remove the cents left over. 
+// Using a greedy approach,
+// we can use a modulus operator to remove the cents left over.
     int cents = (int)(dollars * 100 + 0.5);
 
     int quarters = cents / 25;
@@ -58,9 +76,12 @@ Using type casting, I ensure that the weight input does not crash the program wh
 
     int pennies = cents % 5;
 ```
+
 #### 091826.c
+
 **Part A**: Strings
-Take an inputted string as a character array, and count the amount of spaces and the length of the string. 
+Take an inputted string as a character array,
+and count the amount of spaces and the length of the string.
 
 ```c
 #include <stdio.h>
@@ -83,6 +104,7 @@ int main()
 ```
 
 **Part B**: Structs
+
 ```c
 #include <stdio.h>
 struct student
@@ -91,9 +113,9 @@ struct student
     int id;
     int age;
     float gpa;
-}; // Unlike rust, a `;` is require at the end of defining a struct. 
+}; // Unlike rust, a `;` is require at the end of defining a struct.
 
-int card(struct student s) 
+int card(struct student s)
 {
     return s.age > 21;
 }
@@ -105,6 +127,5 @@ int main()
     printf("The result is %d", res);
 }
 ```
-
 
 ### Week 3
