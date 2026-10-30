@@ -1,0 +1,11 @@
+build
+*.o
+compile_commands.json
+cmake-build-debug
+tests/out.txt
+Testing
+test_parta_fcfs
+test_parta_init
+test_parta_rr
+test_parta_rr_next
+test_parta_run_proc

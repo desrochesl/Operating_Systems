@@ -1,0 +1,158 @@
+#include "unity.h"  // For Unity Unit Tests
+#include "parta.h"
+#include <stdlib.h> // For malloc/free
+
+struct pcb* procs = NULL;
+
+void setUp(void) {
+    // Code to execute at test start up (currently empty)
+}
+void tearDown(void) {
+    free(procs);
+    procs = NULL;
+}
+void test_rr_all_done(void) {
+    // Set up PCBs [0]
+    {
+        procs = init_procs((int[]){0}, 1);
+        TEST_ASSERT_EQUAL_INT(-1, rr_next(0, procs, 1));
+        free(procs);
+        procs = NULL;
+    }
+    // Set up PCBs [0, 0] current 0
+    {
+        procs = init_procs((int[]){0}, 2);
+        TEST_ASSERT_EQUAL_INT(-1, rr_next(0, procs, 2));
+        free(procs);
+        procs = NULL;
+    }
+    // Set up PCBs [0, 0] current 1
+    {
+        procs = init_procs((int[]){0}, 2);
+        TEST_ASSERT_EQUAL_INT(-1, rr_next(1, procs, 2));
+        free(procs);
+        procs = NULL;
+    }
+    // Set up PCBs [0, 0, 0] current 0
+    {
+        procs = init_procs((int[]){0}, 3);
+        TEST_ASSERT_EQUAL_INT(-1, rr_next(0, procs, 3));
+        free(procs);
+        procs = NULL;
+    }
+    // Set up PCBs [0, 0, 0] current 1
+    {
+        procs = init_procs((int[]){0}, 3);
+        TEST_ASSERT_EQUAL_INT(-1, rr_next(1, procs, 3));
+        free(procs);
+        procs = NULL;
+    }
+    // Set up PCBs [0, 0, 0] current 2
+    {
+        procs = init_procs((int[]){0}, 3);
+        TEST_ASSERT_EQUAL_INT(-1, rr_next(2, procs, 3));
+        free(procs);
+        procs = NULL;
+    }
+}
+void test_rr_next(void) {
+    // Set up PCBs [2] current 0
+    {
+        procs = init_procs((int[]){2}, 1);
+        TEST_ASSERT_EQUAL_INT(0, rr_next(0, procs, 1));
+        free(procs);
+        procs = NULL;
+    }
+
+    // Set up PCBs [0,3] current 0
+    {
+        procs = init_procs((int[]){0, 3}, 2);
+        TEST_ASSERT_EQUAL_INT(1, rr_next(0, procs, 2));
+        free(procs);
+        procs = NULL;
+    }
+
+    // Set up PCBs [0,3] current 1
+    {
+        procs = init_procs((int[]){0, 3}, 2);
+        TEST_ASSERT_EQUAL_INT(1, rr_next(1, procs, 2));
+        free(procs);
+        procs = NULL;
+    }
+
+    // Set up PCBs [2,3] current 0
+    {
+        procs = init_procs((int[]){2, 3}, 2);
+        TEST_ASSERT_EQUAL_INT(1, rr_next(0, procs, 2));
+        free(procs);
+        procs = NULL;
+    }
+
+    // Set up PCBs [2,3] current 1
+    {
+        procs = init_procs((int[]){2, 3}, 2);
+        TEST_ASSERT_EQUAL_INT(0, rr_next(1, procs, 2));
+        free(procs);
+        procs = NULL;
+    }
+
+    // Set up PCBs [2,3,4] current 0
+    {
+        procs = init_procs((int[]){2, 3, 4}, 3);
+        TEST_ASSERT_EQUAL_INT(1, rr_next(0, procs, 3));
+        free(procs);
+        procs = NULL;
+    }
+
+    // Set up PCBs [2,3,4] current 1
+    {
+        procs = init_procs((int[]){2, 3, 4}, 3);
+        TEST_ASSERT_EQUAL_INT(2, rr_next(1, procs, 3));
+        free(procs);
+        procs = NULL;
+    }
+
+    // Set up PCBs [2,3,4] current 2
+    {
+        procs = init_procs((int[]){2, 3, 4}, 3);
+        TEST_ASSERT_EQUAL_INT(0, rr_next(2, procs, 3));
+        free(procs);
+        procs = NULL;
+    }
+
+    // Set up PCBs [2,0,4] current 0
+    {
+        procs = init_procs((int[]){2, 0, 4}, 3);
+        TEST_ASSERT_EQUAL_INT(2, rr_next(0, procs, 3));
+        free(procs);
+        procs = NULL;
+    }
+
+    // Set up PCBs [2,0,4] current 1
+    {
+        procs = init_procs((int[]){2, 0, 4}, 3);
+        TEST_ASSERT_EQUAL_INT(2, rr_next(1, procs, 3));
+        free(procs);
+        procs = NULL;
+    }
+
+    // Set up PCBs [2,0,4] current 2
+    {
+        procs = init_procs((int[]){2, 0, 4}, 3);
+        TEST_ASSERT_EQUAL_INT(0, rr_next(2, procs, 3));
+        free(procs);
+        procs = NULL;
+    }
+}
+
+
+int main(void)
+{
+    UNITY_BEGIN();
+
+    RUN_TEST(test_rr_all_done);
+    RUN_TEST(test_rr_next);
+
+    return UNITY_END();
+}
+
