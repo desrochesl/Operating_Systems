@@ -26,10 +26,25 @@ void printall(struct pcb* procs, int plen) {
 }
 
 /**
- * TODO: Describe what the function does
+ * Runs the current process and adds wait times to other processes
+ * @param procs pointer to processes
+ * @param plen length of the list of processes
+ * @param current the process selected to run
+ * @param amount the burst length
  */
 void run_proc(struct pcb* procs, int plen, int current, int amount) {
-    // TODO: Complete and document
+    for (int i = 0; i < plen; i++) {
+        if (procs[i].burst_left == 0)
+            continue;
+        else if (i == current)
+            procs[current] =
+                (struct pcb){current, procs[current].burst_left - amount,
+                             procs[current].wait};
+        else {
+            procs[i] =
+                (struct pcb){i, procs[i].burst_left, procs[i].wait + amount};
+        }
+    }
 }
 
 /**
