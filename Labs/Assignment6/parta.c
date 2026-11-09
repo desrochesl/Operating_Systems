@@ -78,11 +78,23 @@ int rr_next(int current, struct pcb* procs, int plen) {
     }
     return -1;
 }
+
 /**
- * TODO: Describe what the function does
+ * Use Round Robin with a given quantum to run the list of processes
+ * @param procs pointer to processes
+ * @param plen length of the list of processes
+ * @param quantum time before swapping processes
  */
 int rr_run(struct pcb* procs, int plen, int quantum) {
-    // TODO: Complete and document
-    return -1;
+    int time = 0;
+    int current = 0;
+    while (current != -1) {
+        int burst = (procs[current].burst_left > quantum)
+                        ? quantum
+                        : procs[current].burst_left;
+        time += burst;
+        run_proc(procs, plen, current, burst);
+        current = rr_next(current, procs, plen);
+    }
+    return time;
 }
-
