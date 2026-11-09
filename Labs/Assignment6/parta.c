@@ -1,12 +1,16 @@
 #include "parta.h"
-#include <stdlib.h>
 #include <stdio.h>
 
 /**
- * TODO: Describe what the function does
+ * Turn a list of bursts into processes
+ * @param bursts list of bursts
+ * @param blen length of the list of bursts
+ * @return list of processes
  */
 struct pcb* init_procs(int* bursts, int blen) {
-    return NULL;
+    struct pcb* processes = malloc(sizeof(struct pcb) * blen);
+    for (int i = 0; i < blen; i++) processes[i] = (struct pcb){i, bursts[i], 0};
+    return processes;
 }
 
 /**
