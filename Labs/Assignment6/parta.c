@@ -1,5 +1,6 @@
 #include "parta.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * Turn a list of bursts into processes
@@ -48,11 +49,18 @@ void run_proc(struct pcb* procs, int plen, int current, int amount) {
 }
 
 /**
- * TODO: Describe what the function does
+ * Use First Come First Serve to run the list of processes
+ * @param procs pointer to processes
+ * @param plen length of the list of processes
+ * @return time length of time the processes ran for
  */
 int fcfs_run(struct pcb* procs, int plen) {
-    // TODO: Complete and document
-    return -1;
+    int time = 0;
+    for (int i = 0; i < plen; i++) {
+        time += procs[i].burst_left;
+        run_proc(procs, plen, i, procs[i].burst_left);
+    }
+    return time;
 }
 
 /**
