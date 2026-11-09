@@ -64,10 +64,18 @@ int fcfs_run(struct pcb* procs, int plen) {
 }
 
 /**
- * TODO: Describe what the function does
+ * Find the next process to run in a Round Robin processing algorithm
+ * @param current starting process id
+ * @param procs pointer to processes
+ * @param plen length of the list of processes
+ * @return time length of time the processes ran for
  */
 int rr_next(int current, struct pcb* procs, int plen) {
-    // TODO: Complete and document
+    int next = current;
+    for (int i = 0; i < plen; i++) {
+        next = (next + 1 < plen) ? next + 1 : 0;
+        if (procs[next].burst_left != 0) return next;
+    }
     return -1;
 }
 /**
