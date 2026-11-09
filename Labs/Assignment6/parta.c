@@ -14,10 +14,15 @@ struct pcb* init_procs(int* bursts, int blen) {
 }
 
 /**
- * TODO: Describe what the function does
+ * Print a list of processes
+ * @param procs pointer to processes
+ * @param plen length of the list of processes
  */
 void printall(struct pcb* procs, int plen) {
     // Feel free to print however you want
+    for (int i = 0; i < plen; i++)
+        printf("PID: %d | Burst: %d | Wait %d\n\n", procs[i].pid,
+               procs[i].burst_left, procs[i].wait);
 }
 
 /**
