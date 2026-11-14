@@ -1,0 +1,12 @@
+build
+*.o
+compile_commands.json
+cmake-build-debug
+tests/out.txt
+Testing
+test_parta_alloc
+test_parta_alloc_free
+test_parta_assign
+test_parta_at
+test_parta_init_term
+test_parta_merge
