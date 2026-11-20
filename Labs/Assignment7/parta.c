@@ -44,10 +44,20 @@ int mem_region_length(struct mem_region* regions) {
 }
 
 /**
- * TODO: Describe what the function does
+ * Returns the memory region at the specified index, or NULL if the index is out
+ * of bounds.
+ * @param regions pointer to memory region
+ * @param idx index to search for
+ * @return memory region at idx
  */
 struct mem_region* mem_region_at(struct mem_region* regions, int idx) {
-    // TODO: Complete and document
+    struct mem_region* region = regions;
+    int i = 0;
+    while (region != NULL) {
+        if (i == idx) return region;
+        region = region->next;
+        i++;
+    }
     return NULL;
 }
 
