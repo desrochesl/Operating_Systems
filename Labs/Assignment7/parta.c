@@ -17,10 +17,15 @@ struct mem_region* mem_region_init(int size) {
 }
 
 /**
- * TODO: Describe what the function does
+ * Deallocates every memory region in the linked list.
+ * @param regions pointer to memory region
  */
 void mem_region_term(struct mem_region* regions) {
-    // TODO: Complete and document
+    while (regions != NULL) {
+        struct mem_region* next = regions->next;
+        free(regions);
+        regions = next;
+    }
 }
 
 /**
