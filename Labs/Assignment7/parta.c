@@ -97,10 +97,22 @@ void mem_region_merge_empty(struct mem_region* r) {
 }
 
 /**
- * TODO: Describe what the function does
+ * Finds the first available unowned memory region with sufficient capacity and
+ * assigns it to the requester.
+ * @param regions pointer to memory region
+ * @param requester the owner of the new partition
+ * @param size of the new partition
  */
 void mem_region_alloc(struct mem_region* regions, int requester, int size) {
-    // TODO: Complete and document
+    while (regions != NULL) {
+        if (regions->size <= size & regions->owner != OWNER_NOBODY) {
+            regions = regions->next;
+            continue;
+        }
+        mem_region_assign(regions, requester, size);
+        return;
+    }
+    return;
 }
 
 /**
