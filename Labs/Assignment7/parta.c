@@ -79,10 +79,21 @@ void mem_region_assign(struct mem_region* r, int requester, int size) {
 }
 
 /**
- * TODO: Describe what the function does
+ * Merges adjacent unowned memory regions into a single larger region.
+ * @param r pointer to memory region
  */
 void mem_region_merge_empty(struct mem_region* r) {
-    // TODO: Complete and document
+    struct mem_region* region = r;
+    while (r != NULL) {
+        if (r->next == NULL) return;
+        struct mem_region* next = r->next;
+        if (r->owner == OWNER_NOBODY & next->owner == OWNER_NOBODY) {
+            r->size = r->size + next->size;
+            r->next = next->next;
+            mem_region_free(next, OWNER_NOBODY);
+        } else
+            r = next;
+    }
 }
 
 /**
