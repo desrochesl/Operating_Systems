@@ -1,11 +1,19 @@
 #include "parta.h"
 
 /**
- * TODO: Describe what the function does
+ * Allocates and initializes a single unowned memory region of the specified
+ * size.
+ * @param size size of mem_region
+ * @return the created mem_region
  */
 struct mem_region* mem_region_init(int size) {
-    // TODO: Complete and document
-    return NULL;
+    if (size <= 0) return NULL;
+    struct mem_region* regions = malloc(sizeof(struct mem_region));
+    if (regions == NULL) return NULL;
+    regions->next = NULL;
+    regions->size = size;
+    regions->owner = OWNER_NOBODY;
+    return regions;
 }
 
 /**
