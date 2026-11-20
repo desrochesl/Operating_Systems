@@ -61,12 +61,21 @@ struct mem_region* mem_region_at(struct mem_region* regions, int idx) {
     return NULL;
 }
 
-
 /**
- * TODO: Describe what the function does
+ * Assigns the specified size to a requester and splits any remaining space into
+ * a new unowned region.
+ * @param r pointer to memory region
+ * @param requester the new owner of r
+ * @param size size of mem_region
  */
 void mem_region_assign(struct mem_region* r, int requester, int size) {
-    // TODO: Complete and document
+    if (r == NULL) return;
+    int s = r->size - size;
+    if (size<0 | size> r->size) return;
+    r->owner = requester;
+    r->next = mem_region_init(s);
+    r->size = size;
+    return;
 }
 
 /**
