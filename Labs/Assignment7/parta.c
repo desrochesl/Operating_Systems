@@ -116,9 +116,19 @@ void mem_region_alloc(struct mem_region* regions, int requester, int size) {
 }
 
 /**
- * TODO: Describe what the function does
+ * Resets ownership of the requester's memory region back to unowned and merges
+ * adjacent empty regions.
+ * @param regions pointer to memory region
+ * @param requester the owner of partition to remove
  */
 void mem_region_free(struct mem_region* regions, int requester) {
-    // TODO: Complete and document
+    while (regions != NULL) {
+        if (regions->owner != requester) {
+            regions = regions->next;
+            continue;
+        }
+        regions->owner = OWNER_NOBODY;
+        mem_region_merge_empty(regions);
+        return;
+    }
 }
-
