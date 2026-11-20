@@ -29,11 +29,18 @@ void mem_region_term(struct mem_region* regions) {
 }
 
 /**
- * TODO: Describe what the function does
+ * Counts and returns the total number of memory regions in the linked list.
+ * @param regions pointer to memory region
+ * @returns length of regions
  */
 int mem_region_length(struct mem_region* regions) {
-    // TODO: Complete and document
-    return -1;
+    struct mem_region* region = regions;
+    int i = 0;
+    while (region != NULL) {
+        i++;
+        region = region->next;
+    }
+    return i;
 }
 
 /**
